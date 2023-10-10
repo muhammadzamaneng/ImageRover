@@ -1,11 +1,6 @@
 import React from 'react';
 import {Image, TouchableOpacity, FlatList} from 'react-native';
-
-type ImageGridProps = {
-  images: Array<{id: number; previewURL: string; largeImageURL: string}>;
-  setPreviewImage: (image: any) => void;
-  setIsPreviewOpened: (isOpen: boolean) => void;
-};
+import {ImageGridProps} from '../types/image.type';
 
 const ImageGrid = ({
   images,

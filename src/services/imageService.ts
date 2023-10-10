@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'https://pixabay.com/api/';
-const API_KEY = '39918450-61e35a657aaced7133a47e3c3';
+import {config} from '../../config';
+
+const API_URL = config.PIXABAY_API_URL;
+const API_KEY = config.PIXABAY_API_KEY;
 
 export const fetchImages = async (query: string): Promise<any> => {
   try {
