@@ -1,12 +1,6 @@
 import React from 'react';
 import {TextInput, Button, StyleSheet} from 'react-native';
-
-type SearchBarProps = {
-  search: string;
-  setSearch: (search: string) => void;
-  onSubmit: () => void;
-  onFocus: () => void;
-};
+import {SearchBarProps} from '../types/searchBar.type';
 
 const SearchBar = ({search, setSearch, onSubmit, onFocus}: SearchBarProps) => {
   return (

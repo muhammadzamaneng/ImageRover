@@ -22,3 +22,14 @@ export interface IImage {
   webformatURL: string;
   webformatWidth: number;
 }
+export interface ImageModalProps {
+  isVisible: boolean;
+  image: any;
+  onClose: () => void;
+}
+
+export interface ImageGridProps {
+  images: Array<{id: number; previewURL: string; largeImageURL: string}>;
+  setPreviewImage: (image: any) => void;
+  setIsPreviewOpened: (isOpen: boolean) => void;
+}

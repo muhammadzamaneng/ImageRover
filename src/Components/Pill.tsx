@@ -1,10 +1,6 @@
 import React from 'react';
 import {Text, Pressable, StyleSheet} from 'react-native';
-
-type PillProps = {
-  label: string;
-  setPillLabel: (word: string) => void;
-};
+import {PillProps} from '../types/piils.type';
 
 const Pill = ({label, setPillLabel}: PillProps) => {
   return (

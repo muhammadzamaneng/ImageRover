@@ -1,12 +1,7 @@
 import React from 'react';
 import {Image, View} from 'react-native';
 import Modal from 'react-native-modal';
-
-type ImageModalProps = {
-  isVisible: boolean;
-  image: any;
-  onClose: () => void;
-};
+import {ImageModalProps} from '../types/image.type';
 
 const ImageModal = ({isVisible, image, onClose}: ImageModalProps) => {
   return (
