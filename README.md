@@ -1,79 +1,94 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Image Search Application
 
-# Getting Started
+Welcome to the Image Search application—a user-friendly mobile application built using React Native, designed to search for images with the added benefit of automatic word correction suggestions.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Table of Contents
 
-## Step 1: Start the Metro Server
+- [Features](#features)
+- [Logic and Asssumption](#logic-and-assumptions)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Features
 
-To start Metro, run the following command from the _root_ of your React Native project:
+1. **Search Bar**  
+   Allows users to search for images. As users type, word predictions appear, assisting in the correction of possible typos or misspellings.
+2. **Image Grid Display**  
+   Displays search results in a neat grid format. Users can click on any image to view it in detail.
+3. **Image Preview Modal**  
+   Provides a more detailed view of selected images in a modal format.
+4. **Animated Transitions**  
+   Smooth animations for UI transitions, like the logo fade and search bar movement, enhance user experience.
 
-```bash
-# using npm
-npm start
+## Logic and Assumptions
 
-# OR using Yarn
-yarn start
-```
+> The implementation is designed to suggest words that could potentially match a given "mistyped" word. Initially, any non-alphabetical characters are removed from the word to yield a cleaned-up version. This word is then examined to determine its length and whether it starts with a consonant or vowel. Based on its length, the code looks up potential matching words from the wordsDictionary, which are structured with word lengths as keys and further organised by the first letter of words. If the input word starts with a consonant, only words from the dictionary starting with the same consonant are considered. However, if the word starts with a vowel, the function fetches words that start with any vowel. To match the mistyped word with potential suggestions, the module then replaces all vowels in the word with an caret (\^). Words that undergo the same transformation and match the modified mistyped word are deemed as potential matches. When serving the final list of matches, if the cleaned-up input word is part of the potential matches, it is presented first, followed by up to three more suggestions. Otherwise, only the top four matches are returned. This helps users identify words they might have intended to type when they made an error.
 
-## Step 2: Start your Application
+## Setup and Installation
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+1. **Prerequisites**:
 
-### For Android
+   - Ensure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
+   - Install React Native CLI globally:
+     ```bash
+     npm install -g react-native-cli
+     ```
 
-```bash
-# using npm
-npm run android
+2. **Install Project Dependencies**:
 
-# OR using Yarn
-yarn android
-```
+   - Navigate to your project directory and run:
+     ```bash
+     npm install
+     ```
 
-### For iOS
+3. **Setting up the Development Environment**:
 
-```bash
-# using npm
-npm run ios
+   - If you haven't already, set up the development environment for [iOS](https://reactnative.dev/docs/environment-setup) and/or [Android](https://reactnative.dev/docs/environment-setup).
 
-# OR using Yarn
-yarn ios
-```
+4. **Start the Metro Server**:
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+- To start Metro, run the following command from the _root_ of your React Native project:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+  ```bash
+  # using npm
+  npm start
 
-## Step 3: Modifying your App
+  # OR using Yarn
+  yarn start
+  ```
 
-Now that you have successfully run the app, let's modify it.
+5. **Start your Application**:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+- Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+  ### For Android
 
-## Congratulations! :tada:
+  ```bash
+  # using npm
+  npm run android
 
-You've successfully run and modified your React Native App. :partying_face:
+  # OR using Yarn
+  yarn android
+  ```
 
-### Now what?
+  ### For iOS
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+  ```bash
+  # using npm
+  npm run ios
 
-# Troubleshooting
+  # OR using Yarn
+  yarn ios
+  ```
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+  If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
-# Learn More
+  This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-To learn more about React Native, take a look at the following resources:
+## Usage
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1. Launch the app and you'll be greeted with a prominent logo.
+2. Tap on the search bar to start your image search. As you type, word suggestions will appear below.
+3. Select a word suggestion if your desired term appears or continue typing.
+4. View the returned images in the grid display. For a closer look, tap on any image to open the preview modal.
+5. Close the modal to return to your search results.

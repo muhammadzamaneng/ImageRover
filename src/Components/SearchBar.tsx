@@ -6,16 +6,9 @@ type SearchBarProps = {
   setSearch: (search: string) => void;
   onSubmit: () => void;
   onFocus: () => void;
-  style: any;
 };
 
-const SearchBar = ({
-  search,
-  setSearch,
-  onSubmit,
-  onFocus,
-  style,
-}: SearchBarProps) => {
+const SearchBar = ({search, setSearch, onSubmit, onFocus}: SearchBarProps) => {
   return (
     <>
       <TextInput
@@ -24,6 +17,7 @@ const SearchBar = ({
         onChangeText={setSearch}
         onSubmitEditing={onSubmit}
         onFocus={onFocus}
+        keyboardType="web-search"
       />
       <Button title="Search" onPress={onSubmit} />
     </>
