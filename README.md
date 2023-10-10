@@ -5,8 +5,8 @@ Welcome to the Image Search application—a user-friendly mobile application bui
 ## Table of Contents
 
 - [Logic and Asssumption](#logic-and-assumptions)
-- [Demo](#demo)
 - [Setup and Installation](#setup-and-installation)
+- [Demo](#demo)
 
 ## Logic and Assumptions
 
